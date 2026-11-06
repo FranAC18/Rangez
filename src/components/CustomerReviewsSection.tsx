@@ -49,7 +49,7 @@ export const CustomerReviewsSection: React.FC = () => {
       if (canHover && section.matches(':hover') && !pauseButton?.matches(':hover')) return;
 
       setPage((currentPage) => (currentPage + 1) % pageCount);
-    }, 1000);
+    }, 2500);
     return () => window.clearInterval(interval);
   }, [isPaused, page, pageCount]);
 
