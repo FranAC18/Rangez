@@ -1,0 +1,287 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.25rem;
+  }
+
+  body {
+    background-color: #000000;
+    color: #E4E4E7;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-editorial {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3F3F46;
+}
+
+/* Chrome / Silver metallic text gradient matching PDF cover */
+.text-metallic-silver {
+  background: linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 45%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gold metallic text gradient */
+.text-metallic-gold {
+  background: linear-gradient(180deg, #FDF4E3 0%, #D4AF37 50%, #A67C2E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hairline 1px border utilities */
+.hairline-border {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hairline-border-hover:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Subtle glow effect */
+.glow-subtle {
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.35);
+}
+
+.glow-pill-badge {
+  filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.35));
+}
+
+/* Micro-animations */
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulseDot 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* =========================================================================
+   LUXURY EDITORIAL ENTRANCE ANIMATIONS (CALIBRATED FOR PREMIUM FEEL)
+   Smooth, deliberate, and high-fashion pacing (1.0s - 1.2s with rich easing)
+   ========================================================================= */
+
+@keyframes fadeInUpLuxury {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScaleLuxury {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes mobileMenuDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUpLuxury 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScaleLuxury 1.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.mobile-menu-panel {
+  animation: mobileMenuDrop 220ms ease-out both;
+}
+
+.mobile-bottom-bar {
+  bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+@media (max-width: 639px) {
+  .modal-safe-bottom {
+    padding-bottom: max(0.75rem, calc(0.5rem + env(safe-area-inset-bottom)));
+  }
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  position: absolute;
+  right: 0;
+  bottom: 1px;
+  left: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.75);
+  content: '';
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+section[id] {
+  scroll-margin-top: 5.25rem;
+}
+
+/* Smooth Whole-Page Scroll Reveal System */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slow Fade without translation for delicate quotes or subtle badges */
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 1.25s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+}
+
+.reveal-fade.is-visible {
+  opacity: 1;
+}
+
+/* Slide in from left */
+.reveal-slide-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide in from right */
+.reveal-slide-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Luxury Stagger Delays */
+.delay-75  { transition-delay: 80ms; }
+.delay-100 { transition-delay: 120ms; }
+.delay-150 { transition-delay: 180ms; }
+.delay-200 { transition-delay: 240ms; }
+.delay-250 { transition-delay: 300ms; }
+.delay-300 { transition-delay: 360ms; }
+.delay-350 { transition-delay: 420ms; }
+.delay-400 { transition-delay: 500ms; }
+.delay-500 { transition-delay: 620ms; }
+.delay-600 { transition-delay: 740ms; }
+
+/* Product Card Luxury Entrance & Hover */
+.product-card-entrance {
+  animation: fadeInScaleLuxury 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Image zoom hover effect — slow and hypnotic */
+.luxury-image-hover {
+  overflow: hidden;
+}
+
+.luxury-image-hover img {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.luxury-image-hover:hover img {
+  transform: scale(1.055);
+}
+
+@media (hover: none) {
+  .luxury-image-hover:hover img {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal-on-scroll,
+  .reveal-fade,
+  .reveal-slide-left,
+  .reveal-slide-right {
+    opacity: 1;
+    transform: none;
+  }
+}
