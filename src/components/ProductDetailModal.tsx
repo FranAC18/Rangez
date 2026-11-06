@@ -320,16 +320,6 @@ const ProductDetailModalContent: React.FC<{
           <div className="modal-safe-bottom shrink-0 border-t border-white/[0.08] bg-zinc-950/95 px-4 py-3 backdrop-blur sm:px-8 sm:py-4">
             {product.inStock ? (
               <>
-                <div className="mb-2 rounded-xl border border-white/10 bg-white/[0.02] p-2.5 text-xs text-zinc-400 sm:mb-3 sm:p-3">
-                  <div className="flex items-center gap-1.5 text-white font-semibold mb-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-dot" />
-                    <span>Atención directa por WhatsApp</span>
-                  </div>
-                  <p className="text-[11px] text-zinc-500 leading-normal">
-                    Se abrirá WhatsApp con el modelo, talla (<strong className="text-zinc-200">{selectedSize}</strong>) y color (<strong className="text-zinc-200">{selectedColor}</strong>) listos para coordinar tu pedido.
-                  </p>
-                </div>
-
                 <a
                   href={whatsAppUrl}
                   target="_blank"
