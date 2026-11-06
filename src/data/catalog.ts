@@ -11,7 +11,7 @@ export const BRAND_CONFIG: BrandConfig = {
   whatsappWaMe: '593963311746',
   instagramHandle: '@rangez.ec',
   instagramUrl: 'https://instagram.com/rangez.ec',
-  foundationYear: '2024',
+  foundationYear: '2026',
 };
 
 export const SIZE_MEASUREMENTS: SizeMeasurement[] = [
